@@ -3,12 +3,12 @@ import Todo from './todo';
 
 const TodoList = (props) => {
   let todos = props.todos.map((todo, i) => {
-    return <Todo key={i} text={todo} />
+    return <Todo key={i} completeTodo={ props.completeTodo } text={todo} />
   });
 
   return(
     <div>
-      <input onKeyDown={ props.onInputChange }
+      <input onKeyDown={ props.addTodo }
              type='text'
              name='add-todo'
              placeholder='Add Todo' />
