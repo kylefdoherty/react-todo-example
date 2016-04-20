@@ -4,7 +4,7 @@ const Todo = (props) => {
   return (
     <li>
       {props.text}
-      <input onChange={ props.completeTodo } type="checkbox" />
+      <input onChange={ props.completeTodo } type='checkbox' checked={false} />
     </li>
 
   )
