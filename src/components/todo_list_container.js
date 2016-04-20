@@ -7,15 +7,16 @@ export default class TodoListContainer extends Component {
     this.state = {
       todos: [
         'Feed dog',
-        'Walk dog',
+        'Take dog to the vet',
         'Take out recycle'
       ]
     }
 
-    this.onInputChange = this.onInputChange.bind(this)
+    this.addTodo = this.addTodo.bind(this);
+    this.completeTodo = this.completeTodo.bind(this);
   }
 
-  onInputChange(e) {
+  addTodo(e) {
     if(e.key === 'Enter') {
       let updatedState = this.state.todos.slice(0);
       updatedState.push(e.target.value)
@@ -28,10 +29,22 @@ export default class TodoListContainer extends Component {
     }
   }
 
+  completeTodo(e) {
+    let completedTodo = e.target.parentElement.innerText
+    let updatedState = this.state.todos.filter((todo) => {
+      return todo !== completedTodo
+    })
+
+    this.setState({
+      todos: updatedState
+    });
+  }
+
   render() {
     return(
       <TodoList todos={ this.state.todos }
-                onInputChange={ this.onInputChange } />
+                addTodo={ this.addTodo }
+                completeTodo={ this.completeTodo }/>
     );
   }
 }
