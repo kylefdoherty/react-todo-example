@@ -32,17 +32,13 @@ function renderComponent(Component) {
 
 // helper for simulating events. fn.simulate gives each jquery instance access
 // to simulate function ex; ('div').simulate(event, value)
-$.fn.simulate = function(eventName, value) {
+$.fn.simulate = function(eventName, options) {
   // here were accessing TestUtils.Simulate which allows you to simulate a DOM
   // event for a given node and pass in optional data. In our case we want to
   // dynamically select the event so we access Simulate's properties with brackets
   // then was pass it "this" which is the jquery dom node (ex: 'div')
-
-  if (value) {
-    this.val(value);
-  }
-
-  TestUtils.Simulate[eventName](this[0]);
+  this.val(options.value);
+  TestUtils.Simulate[eventName](this[0], {key: options.key});
 }
 
 
