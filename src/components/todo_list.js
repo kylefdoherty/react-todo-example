@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import AddTodo from './add_todo';
 import Todo from './todo';
 
 const TodoList = (props) => {
@@ -8,10 +9,7 @@ const TodoList = (props) => {
 
   return(
     <div>
-      <input onKeyDown={ props.addTodo }
-             type='text'
-             name='add-todo'
-             placeholder='Add Todo' />
+      <AddTodo addTodo={ props.addTodo } />
       <ul>
         { todos }
       </ul>

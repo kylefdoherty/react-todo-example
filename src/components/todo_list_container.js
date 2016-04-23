@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import TodoList from './todo_list';
 
-export default class TodoListContainer extends Component {
+export default class TodoAppContainer extends Component {
   constructor() {
     super()
     this.state = {
       todos: [
         'Feed dog',
-        'Take dog to the vet',
         'Take out recycle'
       ]
     }
