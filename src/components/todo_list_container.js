@@ -17,8 +17,7 @@ export default class TodoAppContainer extends Component {
 
   addTodo(e) {
     if(e.key === 'Enter') {
-      let updatedState = this.state.todos.slice(0);
-      updatedState.push(e.target.value)
+      let updatedState = this.state.todos.concat(e.target.value)
 
       this.setState({
         todos: updatedState
